@@ -26,16 +26,17 @@ namespace ClassDemoOfDiffDesignPatterns
              */
             //DemoSingleton();
 
-            DemoFactoryMethod();
-            
-            
+            //DemoFactoryMethod();
+
+            //DemoAbstractFactory();
+
 
             /*
              * Structural pattern
              */
             //DemoAdaptor();
 
-            //DemoProxy();
+            DemoProxy();
 
             //DemoDecorator();
 
@@ -85,54 +86,56 @@ namespace ClassDemoOfDiffDesignPatterns
 
         private void DemoAdaptor()
         {
-            //IAdaptor adap = new Adaptor1();
-            //string newstr = adap.Request("peter");
-            //Console.WriteLine(newstr);
+            IAdaptor adap = new Adaptor1();
+            string newstr = adap.Request("peter");
+            Console.WriteLine(newstr);
 
-            //IAdaptor adap2 = new Adaptor2();
-            //string newstr2 = adap2.Request("anders");
-            //Console.WriteLine(newstr2);
+            adap = new Adaptor2();
+            string newstr2 = adap.Request("jakob");
+            Console.WriteLine(newstr2);
 
         }
 
         private void DemoProxy()
         {
-            //IDemoProxy proxy = new RealProxy();
+            IDemoProxy proxy = new RealProxy();
 
-            //proxy.InsertString("Peter");
-            //proxy.InsertString("Anders");
-            //proxy.InsertString("Vibeke");
-            //proxy.InsertString("Michael C");
+            proxy.InsertString("Peter");
+            proxy.InsertString("Anders");
+            proxy.InsertString("Vibeke");
+            proxy.InsertString("Michael C");
 
-            //foreach (string s in proxy.GetAll())
-            //{
-            //    Console.WriteLine(s);
-            //}
+            foreach (string s in proxy.GetAll())
+            {
+                Console.WriteLine(s);
+            }
 
-            //Console.WriteLine("    AFTER PROXY ");
-            //IDemoProxy proxy2 = new ProxyClass("SWC");
+            Console.WriteLine("    AFTER PROXY ");
+            IDemoProxy proxy2 = new ProxyClass("SWC");
 
-            //proxy2.InsertString("Peter");
-            //proxy2.InsertString("Anders");
+            proxy2.InsertString("Peter");
+            proxy2.InsertString("Anders");
 
-            //foreach (string s in proxy2.GetAll())
-            //{
-            //    Console.WriteLine(s);
-            //}
+            foreach (string s in proxy2.GetAll())
+            {
+                Console.WriteLine(s);
+            }
 
         }
 
         private void DemoDecorator()
         {
             // Concrete
-            //IComponent component = new ConcreteComponent();
-            //Console.WriteLine(component.DoSomething("peter"));
+            IComponent component = new ConcreteComponent();
+            Console.WriteLine(component.DoSomething("peter"));
 
-            //IComponent comp2 = new Decorator1(component);
-            //Console.WriteLine(comp2.DoSomething("peter"));
+            // decorated once
+            IComponent comp2 = new Decorator1(component);
+            Console.WriteLine(comp2.DoSomething("peter"));
 
-            //IComponent comp3 = new Decorator1(comp2);
-            //Console.WriteLine(comp3.DoSomething("peter"));
+            // decorated twice
+            IComponent comp3 = new Decorator1(comp2);
+            Console.WriteLine(comp3.DoSomething("peter"));
 
         }
 

@@ -4,14 +4,14 @@ using System.Text;
 
 namespace ClassDemoOfDiffDesignPatterns.pattern.proxy
 {
-    class ProxyClass
+    class ProxyClass:IDemoProxy
     {
         private IDemoProxy _realProxy;
         private string _courseName;
 
         public ProxyClass(string name)
         {
-            //_realProxy = new RealProxy();
+            _realProxy = new RealProxy();
             _courseName = name;
         }
 

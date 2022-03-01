@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassDemoOfDiffDesignPatterns.pattern.proxy
 {
-    class RealProxy
+    class RealProxy:IDemoProxy
     {
         private List<String> _data = new List<string>();
         public void InsertString(string str)
