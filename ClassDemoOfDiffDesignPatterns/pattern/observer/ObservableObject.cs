@@ -7,7 +7,7 @@ using ClassDemoOfDiffDesignPatterns.Annotations;
 
 namespace ClassDemoOfDiffDesignPatterns.pattern.observer
 {
-    class ObservableObject 
+    class ObservableObject : INotifyPropertyChanged
     {
         private int _id;
         private String _text;
@@ -29,6 +29,7 @@ namespace ClassDemoOfDiffDesignPatterns.pattern.observer
             {
                 if (value == _id) return;
                 _id = value;
+                Notify("Id");
                 
             }
         }
@@ -40,6 +41,7 @@ namespace ClassDemoOfDiffDesignPatterns.pattern.observer
             {
                 if (value == _text) return;
                 _text = value;
+                Notify("Text");
                 
             }
         }
@@ -50,6 +52,16 @@ namespace ClassDemoOfDiffDesignPatterns.pattern.observer
         }
 
 
-        
+
+        // svarer til attach hhv deattach observers
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void Notify([CallerMemberName] string propertyName = null)
+        {
+            // kalder update hos oberservatørerne
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

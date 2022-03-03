@@ -36,7 +36,7 @@ namespace ClassDemoOfDiffDesignPatterns
              */
             //DemoAdaptor();
 
-            DemoProxy();
+            //DemoProxy();
 
             //DemoDecorator();
 
@@ -45,7 +45,7 @@ namespace ClassDemoOfDiffDesignPatterns
              */
             //DemoObserver();
 
-            //DemoTemplate();
+            DemoTemplate();
 
             
         }
@@ -142,7 +142,7 @@ namespace ClassDemoOfDiffDesignPatterns
 
         private void DemoObserver()
         {
-            /*
+            
             // I am observer
             ObservableObject obj = new ObservableObject(3, "text");
             obj.Text = "Peter"; // nothing happen
@@ -154,6 +154,8 @@ namespace ClassDemoOfDiffDesignPatterns
                 Console.WriteLine($"Anonym metode :the changed property is {args.PropertyName}");
                 Console.WriteLine($"New values is \n{s}");
             };
+            obj.Text = "Jakob";
+            obj.Id = 99;
 
             // alternative
             obj.PropertyChanged += Update;
@@ -163,7 +165,8 @@ namespace ClassDemoOfDiffDesignPatterns
             obj.PropertyChanged -= Update;
 
             obj.Text = "Vibeke";
-            */
+
+            
 
         }
 
@@ -180,18 +183,18 @@ namespace ClassDemoOfDiffDesignPatterns
 
         private void DemoTemplate()
         {
-            //List<String> data = new List<string>()
-            //{
-            //    "Peter",
-            //    "Anders",
-            //    "Vibeke",
-            //    "Michael C"
-            //};
+            List<String> data = new List<string>()
+            {
+                "Peter",
+                "Anders",
+                "Vibeke",
+                "Michael C"
+            };
 
-            //AbstractTemplateClass temp = new MySubTemplate2();
-            //temp.InsertTemplateMethod(data);
+            AbstractTemplateClass temp = new TamplateSub2();
+            temp.InsertTemplateMethod(data);
 
-            //Console.WriteLine(temp);
+            Console.WriteLine(temp);
 
         }
 
